@@ -99,6 +99,11 @@ namespace Hello_World__Kinect_
                 kinectRegion.KinectSensor = args.NewSensor;
             }
         }
+
+        private void ButtonOnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Well done!");
+        }
         
     }
 }
