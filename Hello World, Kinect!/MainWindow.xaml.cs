@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
+using Microsoft.Kinect.Toolkit.Controls;
 
 namespace Hello_World__Kinect_
 {
@@ -36,6 +37,23 @@ namespace Hello_World__Kinect_
             this.sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
             this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
             this.sensorChooser.Start();
+            
+            
+            //fill scroll content
+            for (int i = 1; i < 20; i++)
+            {
+                var button = new KinectCircleButton
+                {
+                    Content = i,
+                    Height = 200
+                };
+
+                int i1 = i;
+                button.Click +=
+                    (o, args) => MessageBox.Show("You clicked button #" + i1);
+
+                scrollContent.Children.Add(button);
+            }
         }
 
         /*

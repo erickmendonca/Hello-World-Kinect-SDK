@@ -2,12 +2,18 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
-        Title="Hello World, Kinect!" Height="500" Width="600">
+        Title="Hello World, Kinect!" Height="700" Width="800">
     <Grid>
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
         <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100" />
         <k:KinectRegion Name="kinectRegion" ForceCursor="True">
-        <k:KinectTileButton Label="Press me!" Click="ButtonOnClick"></k:KinectTileButton>
+            <Grid Margin="0,0,-0.4,0.4">
+                <k:KinectTileButton Label="Press me!" Click="ButtonOnClick" Margin="10,215,564,235"></k:KinectTileButton>
+                <k:KinectCircleButton Label="Circle" HorizontalAlignment="Right" Height="200" Click="ButtonOnClick">Hi</k:KinectCircleButton>
+                <k:KinectScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Bottom">
+                    <StackPanel Orientation="Horizontal" Name="scrollContent" />
+                </k:KinectScrollViewer>
+            </Grid>
         </k:KinectRegion>
     </Grid>
 </Window>
