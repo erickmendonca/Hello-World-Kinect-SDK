@@ -48,6 +48,7 @@ namespace Hello_World__Kinect_
         private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args)
         {
             bool error = false;
+
             if (args.OldSensor != null)
             {
                 try
@@ -73,7 +74,7 @@ namespace Hello_World__Kinect_
                     args.NewSensor.SkeletonStream.Enable();
                     try
                     {
-                        args.NewSensor.DepthStream.Range = DepthRange.Near;
+                        //args.NewSensor.DepthStream.Range = DepthRange.Near;
                         args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
                         args.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
                     }
@@ -92,6 +93,12 @@ namespace Hello_World__Kinect_
                     // E.g.: sensor might be abruptly unplugged.
                 }
             }
+
+            if (!error)
+            {
+                kinectRegion.KinectSensor = args.NewSensor;
+            }
         }
+        
     }
 }
